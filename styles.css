@@ -1,0 +1,563 @@
+/* GLOBAL ------------------------------------------------------ */
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    background: #fff;
+    scroll-behavior: smooth;
+}
+
+section {
+    position: relative;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+/* KEYFRAMES --------------------------------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* HEADER ------------------------------------------------------ */
+.header {
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.65);
+}
+
+.logo {
+    height: 40px;
+    cursor: pointer;
+}
+
+.header-btn {
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 22px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.header-btn:hover {
+    transform: scale(1.05);
+}
+
+/* HERO -------------------------------------------------------- */
+.hero {
+    text-align: center;
+    padding: 120px 20px 80px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 800;
+    animation: fadeUp 1s ease;
+}
+
+.subtitle {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: -10px;
+    animation: fadeUp 1.2s ease;
+}
+
+.description {
+    color: #555;
+    font-size: 20px;
+    margin: 20px auto 40px;
+    line-height: 1.5;
+    animation: fadeUp 1.3s ease;
+    max-width: 600px;
+}
+
+.cta-btn {
+    background: linear-gradient(90deg, #111, #333);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.25s ease;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0px 12px 28px rgba(0,0,0,0.15);
+}
+
+/* SIGNUP FORM ------------------------------------------------- */
+.signup {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    max-width: 380px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-container input {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Premium SUBMIT button */
+.submit-btn {
+    background: linear-gradient(90deg, #111, #333);
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* FEATURES ---------------------------------------------------- */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 80px 20px;
+}
+
+.card {
+    background: white;
+    padding: 40px 20px;
+    border-radius: 24px;
+    width: 260px;
+    height: 240px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    box-shadow: 0 20px 45px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+    animation: fadeUp 1s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    opacity: 0.95;
+}
+
+.card-label {
+    font-size: 13px;
+    color: #777;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* HOW IT WORKS ---------------------------------------------------- */
+.how {
+    text-align: center;
+    padding: 90px 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+}
+
+.how-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.how-sub {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.how-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.how-item {
+    width: 260px;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+}
+
+.how-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+}
+
+.how-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    margin-bottom: 18px;
+}
+
+.how-item h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.how-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* RESPONSIVE ------------------------------------------------------- */
+@media (max-width: 900px) {
+    .how-grid {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+}
+
+
+/* AUDIENCE ---------------------------------------------------- */
+.audience {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.audience-sub {
+    font-size: 18px;
+    color: #555;
+}
+
+
+
+/* FAQ --------------------------------------------------------- */
+
+
+.faq-title {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+details {
+    margin-bottom: 16px;
+    padding: 16px;
+    background: #fafafa;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    transition: 0.25s ease;
+}
+
+details:hover {
+    transform: scale(1.01);
+}
+
+/* FOOTER ------------------------------------------------------ */
+.footer {
+    text-align: center;
+    padding: 60px;
+    color: #999;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+/* RESPONSIVE -------------------------------------------------- */
+@media (max-width: 900px) {
+    .features {
+        flex-direction: column;
+    }
+    .icon-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .title { font-size: 38px; }
+    .subtitle { font-size: 26px; }
+}
+
+/* Fade-in on scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.parallax {
+    transform: translateY(0px);
+    transition: transform 0.1s linear;
+    will-change: transform;
+}
+/* APPLE-STYLE MOTION ------------------------------------------------*/
+
+/* Smooth fade + lift */
+.apple-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.apple-fade.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero text transforms */
+.hero h1, .hero h2 {
+    will-change: transform, opacity;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Slight scale effect like Apple */
+.scale-on-scroll {
+    transform-origin: center;
+    will-change: transform;
+}
+
+/* APPLE-STYLE FAQ -------------------------------------------------- */
+
+.faq {
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
+
+.faq-title {
+    font-size: 32px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+}
+
+.faq-item {
+    background: #fafafa;
+    border-radius: 14px;
+    border: 1px solid #eee;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+}
+
+.faq-item summary {
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    color: #111;
+}
+
+.faq-item p {
+    margin-top: 10px;
+    color: #555;
+    line-height: 1.55;
+    font-size: 16px;
+}
+
+/* FIX WAITLIST FORM ------------------------------------------------- */
+
+.waitlist-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.waitlist-form input,
+.waitlist-form button {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* INPUTS */
+.waitlist-input {
+    padding: 16px 20px;
+    border: 2px solid #000;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #fff;
+    transition: 0.25s ease;
+}
+
+.waitlist-input:focus {
+    background: #f7f7f7;
+}
+
+/* BUTTON */
+.waitlist-submit {
+    padding: 16px 20px;
+    background: #000;
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.waitlist-submit:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+/* Success message */
+.success-message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #10b981;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.4s ease;
+}
+
+.success-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+details p {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.35s ease;
+    opacity: 0;
+}
+
+details[open] p {
+    opacity: 1;
+}
+
+/* --------- FAQ ANIMATION (OPEN + CLOSE) --------- */
+
+/* Smooth FAQ Open/Close Animation */
+/* FAQ container */
+.faq {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* FAQ card box */
+.faq-item {
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #eee;
+    padding: 0 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+/* clickable header */
+.faq-item summary {
+    padding: 18px 0;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* remove default marker */
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* custom arrow */
+.faq-item summary::after {
+    content: "▸";
+    font-size: 15px;
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(90deg);
+}
+
+/* answer text */
+.faq-item p {
+    margin: 12px 0 18px 0;
+    padding: 0;
+    color: #444;
+    line-height: 1.55;
+    display: block;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+}
+
+
+
+
+
