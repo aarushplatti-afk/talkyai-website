@@ -304,7 +304,9 @@ body::after {
 }
 
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 40px 20px;
     border-radius: 24px;
     width: 260px;
@@ -316,7 +318,8 @@ body::after {
     align-items: center;
     gap: 14px;
 
-    border: 1px solid rgba(37, 99, 235, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1);
 
     /* Optimized for smooth scaling */
     transform: scale(1) translateZ(0);
@@ -326,13 +329,15 @@ body::after {
 
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), 
                 border 0.4s ease,
-                box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+                box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.4s ease;
 }
 
 .card:hover {
     transform: scale(1.08) translateZ(0) !important;
-    border: 1px solid rgba(37, 99, 235, 0.4);
-    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
 }
 
 .card-icon {
@@ -390,11 +395,14 @@ body::after {
 .how-item {
     width: 260px;
     padding: 30px 20px;
-    background: white;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 22px;
 
     /* Soft outline */
-    border: 1px solid rgba(37, 99, 235, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.1);
 
     /* Optimized for smooth scaling */
     transform: scale(1) translateZ(0);
@@ -402,17 +410,19 @@ body::after {
     backface-visibility: hidden;
     -webkit-font-smoothing: subpixel-antialiased;
 
-    box-shadow: none;
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
                 border 0.4s ease,
-                box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+                box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background 0.4s ease;
 }
 
 .how-item:hover {
     transform: scale(1.08) translateZ(0) !important;
-    border: 1px solid rgba(37, 99, 235, 0.4);
-    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
 }
+
 
 .how-icon {
     width: 52px;
@@ -577,20 +587,25 @@ details:hover {
 }
 
 .faq-item {
-    background: #fafafa;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 14px;
-    border: 1px solid rgba(37, 99, 235, 0.1);
-    padding: 18px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0 20px;
     margin-bottom: 14px;
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
                 box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                border 0.3s ease;
+                border 0.3s ease,
+                background 0.3s ease;
 }
 
 .faq-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
-    border: 1px solid rgba(37, 99, 235, 0.25);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .faq-item summary {
