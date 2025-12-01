@@ -853,3 +853,19 @@ details[open] p {
         font-size: 24px;
     }
 }
+
+/* Add or update this in your RESPONSIVE section */
+
+@media (max-width: 900px) {
+    .how-grid {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .how-item {
+        width: 90%;
+        max-width: 340px;
+        margin: 0 auto; /* This ensures centering */
+    }
+}
