@@ -1,9 +1,5 @@
 /* GLOBAL ------------------------------------------------------ */
 
-/* GLOBAL ------------------------------------------------------ */
-
-/* GLOBAL ------------------------------------------------------ */
-
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -12,6 +8,15 @@ body {
     background-attachment: fixed;
     scroll-behavior: smooth;
     min-height: 100vh;
+}
+
+section {
+    position: relative;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
 }
 
 /* KEYFRAMES --------------------------------------------------- */
@@ -43,7 +48,6 @@ body {
     }
 }
 
-/* HEADER ------------------------------------------------------ */
 /* HEADER ------------------------------------------------------ */
 .header {
     padding: 20px 40px;
@@ -264,7 +268,8 @@ body {
     padding: 40px 20px;
     border-radius: 24px;
     width: 260px;
-    height: 240px;
+    height: auto;
+    min-height: 280px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -307,17 +312,17 @@ body {
     font-weight: 600;
 }
 
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
 .card-desc {
     font-size: 14px;
     color: #666;
     line-height: 1.5;
     margin: 0;
     padding: 0 10px;
-}
-
-.card-title {
-    font-size: 18px;
-    font-weight: 700;
 }
 
 /* HOW IT WORKS ---------------------------------------------------- */
@@ -377,7 +382,6 @@ body {
     box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
 }
 
-
 .how-icon {
     width: 52px;
     height: 52px;
@@ -398,16 +402,6 @@ body {
     line-height: 1.5;
 }
 
-/* RESPONSIVE ------------------------------------------------------- */
-@media (max-width: 900px) {
-    .how-grid {
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-    }
-}
-
-/* AUDIENCE ---------------------------------------------------- */
 /* AUDIENCE ---------------------------------------------------- */
 .audience {
     text-align: center;
@@ -426,6 +420,11 @@ body {
 }
 
 /* FAQ --------------------------------------------------------- */
+.faq {
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 0 20px;
+}
 
 .faq-title {
     font-size: 32px;
@@ -436,24 +435,68 @@ body {
     color: #1e3a8a;
 }
 
+.faq-item {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0 20px;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                border 0.3s ease,
+                background 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
 .faq-item summary {
-    cursor: pointer;
-    font-size: 17px;
+    padding: 18px 0;
     font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
     color: #1e3a8a;
 }
 
-details {
-    margin-bottom: 16px;
-    padding: 16px;
-    background: #fafafa;
-    border-radius: 10px;
-    border: 1px solid #eee;
-    transition: 0.25s ease;
+/* remove default marker */
+.faq-item summary::-webkit-details-marker {
+    display: none;
 }
 
-details:hover {
-    transform: scale(1.01);
+/* custom arrow */
+.faq-item summary::after {
+    content: "▸";
+    font-size: 15px;
+    color: #2563eb;
+    transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(90deg);
+}
+
+/* answer text */
+.faq-item p {
+    margin: 12px 0 18px 0;
+    padding: 0;
+    color: #444;
+    line-height: 1.55;
+    display: block;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    font-size: 16px;
 }
 
 /* FOOTER ------------------------------------------------------ */
@@ -462,38 +505,7 @@ details:hover {
     padding: 60px;
     color: #999;
     font-size: 14px;
-    background: #fafafa;
-}
-
-/* RESPONSIVE -------------------------------------------------- */
-@media (max-width: 900px) {
-    .features {
-        flex-direction: column;
-    }
-    .icon-row {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .title { font-size: 38px; }
-    .subtitle { font-size: 26px; }
-}
-
-/* Fade-in on scroll */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.appear {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.parallax {
-    transform: translateY(0px);
-    transition: transform 0.1s linear;
-    will-change: transform;
+    background: rgba(250, 250, 250, 0.5);
 }
 
 /* APPLE-STYLE MOTION ------------------------------------------------*/
@@ -524,56 +536,22 @@ details:hover {
     will-change: transform;
 }
 
-/* APPLE-STYLE FAQ -------------------------------------------------- */
-
-.faq {
-    max-width: 700px;
-    margin: 100px auto;
-    padding: 0 20px;
+/* Fade-in on scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.faq-title {
-    font-size: 32px;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 40px;
-    letter-spacing: -0.02em;
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.faq-item {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 0 20px;
-    margin-bottom: 14px;
-    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                border 0.3s ease,
-                background 0.3s ease;
-}
-
-.faq-item:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-}
-
-.faq-item summary {
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 600;
-    color: #111;
-}
-
-.faq-item p {
-    margin-top: 10px;
-    color: #555;
-    line-height: 1.55;
-    font-size: 16px;
+.parallax {
+    transform: translateY(0px);
+    transition: transform 0.1s linear;
+    will-change: transform;
 }
 
 /* FIX WAITLIST FORM ------------------------------------------------- */
@@ -640,79 +618,6 @@ details:hover {
     opacity: 1;
     transform: translateY(0);
 }
-
-details p {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, opacity 0.35s ease;
-    opacity: 0;
-}
-
-details[open] p {
-    opacity: 1;
-}
-
-/* --------- FAQ ANIMATION (OPEN + CLOSE) --------- */
-
-/* Smooth FAQ Open/Close Animation */
-/* FAQ container */
-.faq {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
-/* FAQ card box */
-.faq-item {
-    background: #fff;
-    border-radius: 14px;
-    border: 1px solid rgba(37, 99, 235, 0.1);
-    padding: 0 20px;
-    margin-bottom: 14px;
-    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.06);
-}
-
-/* clickable header */
-.faq-item summary {
-    padding: 18px 0;
-    font-weight: 600;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* remove default marker */
-.faq-item summary::-webkit-details-marker {
-    display: none;
-}
-
-/* custom arrow */
-.faq-item summary::after {
-    content: "▸";
-    font-size: 15px;
-    color: #2563eb;
-    transition: transform 0.2s ease;
-}
-
-.faq-item[open] summary::after {
-    transform: rotate(90deg);
-}
-
-/* answer text */
-.faq-item p {
-    margin: 12px 0 18px 0;
-    padding: 0;
-    color: #444;
-    line-height: 1.55;
-    display: block;
-    height: auto;
-    max-height: none;
-    overflow: visible;
-}
-
-/* Add this to the end of your styles.css file or replace the existing RESPONSIVE section */
 
 /* RESPONSIVE -------------------------------------------------- */
 @media (max-width: 900px) {
@@ -794,6 +699,7 @@ details[open] p {
     .how-item {
         width: 90%;
         max-width: 340px;
+        margin: 0 auto;
     }
     
     /* Audience */
@@ -865,21 +771,5 @@ details[open] p {
     
     .faq-title {
         font-size: 24px;
-    }
-}
-
-/* Add or update this in your RESPONSIVE section */
-
-@media (max-width: 900px) {
-    .how-grid {
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-    }
-    
-    .how-item {
-        width: 90%;
-        max-width: 340px;
-        margin: 0 auto; /* This ensures centering */
     }
 }
