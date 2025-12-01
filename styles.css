@@ -50,6 +50,7 @@ section {
 }
 
 /* HEADER ------------------------------------------------------ */
+/* HEADER ------------------------------------------------------ */
 .header {
     padding: 20px 40px;
     display: flex;
@@ -58,8 +59,8 @@ section {
     position: sticky;
     top: 0;
     z-index: 20;
-    backdrop-filter: blur(12px);
-    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(10px);
+    background: rgba(240, 247, 255, 0.3);
 }
 
 .logo {
