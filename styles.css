@@ -34,6 +34,18 @@ section {
     100% { transform: translateY(0); }
 }
 
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 /* HEADER ------------------------------------------------------ */
 .header {
     padding: 20px 40px;
@@ -53,25 +65,64 @@ section {
 }
 
 .header-btn {
-    background: black;
+    position: relative;
     color: white;
     border: none;
     border-radius: 10px;
     padding: 10px 22px;
     cursor: pointer;
     font-size: 14px;
-    transition: 0.2s ease;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0px 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+.header-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        #0c1e4a,
+        #1e3a8a,
+        #2563eb,
+        #3b82f6,
+        #2563eb,
+        #1e3a8a,
+        #0c1e4a
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease infinite;
+    z-index: -1;
+}
+
+.header-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.15"/></svg>');
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .header-btn:hover {
     transform: scale(1.05);
+    box-shadow: 0px 6px 16px rgba(30, 58, 138, 0.4);
 }
 
 /* HERO -------------------------------------------------------- */
 .hero {
     text-align: center;
     padding: 120px 20px 80px;
-    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+    background: linear-gradient(180deg, #f0f7ff 0%, #f7f7f7 100%);
 }
 
 .title {
@@ -97,7 +148,7 @@ section {
 }
 
 .cta-btn {
-    background: linear-gradient(90deg, #111, #333);
+    position: relative;
     color: white;
     padding: 16px 40px;
     border-radius: 12px;
@@ -105,13 +156,54 @@ section {
     cursor: pointer;
     font-size: 18px;
     font-weight: 600;
-    transition: 0.25s ease;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0px 8px 20px rgba(30, 58, 138, 0.4);
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        #0c1e4a,
+        #1e3a8a,
+        #2563eb,
+        #3b82f6,
+        #2563eb,
+        #1e3a8a,
+        #0c1e4a
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease infinite;
+    z-index: -1;
+}
+
+.cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.15"/></svg>');
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .cta-btn:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0px 12px 28px rgba(0,0,0,0.15);
+    box-shadow: 0px 12px 28px rgba(30, 58, 138, 0.5);
+}
+
+.cta-btn:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 /* SIGNUP FORM ------------------------------------------------- */
@@ -179,14 +271,23 @@ section {
     align-items: center;
     gap: 14px;
 
-    box-shadow: 0 20px 45px rgba(0,0,0,0.06);
-    transition: 0.3s ease;
-    animation: fadeUp 1s ease;
+    border: 1px solid rgba(37, 99, 235, 0.15);
+
+    /* Optimized for smooth scaling */
+    transform: scale(1) translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                border 0.4s ease,
+                box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 28px 60px rgba(0,0,0,0.1);
+    transform: scale(1.08) translateZ(0) !important;
+    border: 1px solid rgba(37, 99, 235, 0.4);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
 }
 
 .card-icon {
@@ -197,8 +298,9 @@ section {
 }
 
 .card-label {
-    font-size: 13px;
-    color: #777;
+    font-size: 16px;
+    color: #2563eb;
+    font-weight: 600;
 }
 
 .card-title {
@@ -210,7 +312,7 @@ section {
 .how {
     text-align: center;
     padding: 90px 20px;
-    background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
 }
 
 .how-title {
@@ -237,13 +339,26 @@ section {
     padding: 30px 20px;
     background: white;
     border-radius: 22px;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.06);
-    transition: 0.3s ease;
+
+    /* Soft outline */
+    border: 1px solid rgba(37, 99, 235, 0.15);
+
+    /* Optimized for smooth scaling */
+    transform: scale(1) translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+
+    box-shadow: none;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border 0.4s ease,
+                box-shadow 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .how-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+    transform: scale(1.08) translateZ(0) !important;
+    border: 1px solid rgba(37, 99, 235, 0.4);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
 }
 
 .how-icon {
@@ -257,6 +372,7 @@ section {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
+    color: #1e3a8a;
 }
 
 .how-item p {
@@ -274,27 +390,40 @@ section {
     }
 }
 
-
+/* AUDIENCE ---------------------------------------------------- */
 /* AUDIENCE ---------------------------------------------------- */
 .audience {
     text-align: center;
     padding: 80px 20px;
+    background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+}
+
+.audience h2 {
+    color: #1e3a8a;
 }
 
 .audience-sub {
     font-size: 18px;
-    color: #555;
+    color: #2563eb;
+    font-weight: 600;
 }
-
-
 
 /* FAQ --------------------------------------------------------- */
 
-
 .faq-title {
-    font-size: 26px;
+    font-size: 32px;
+    font-weight: 800;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+    color: #1e3a8a;
+}
+
+.faq-item summary {
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1e3a8a;
 }
 
 details {
@@ -349,6 +478,7 @@ details:hover {
     transition: transform 0.1s linear;
     will-change: transform;
 }
+
 /* APPLE-STYLE MOTION ------------------------------------------------*/
 
 /* Smooth fade + lift */
@@ -396,16 +526,18 @@ details:hover {
 .faq-item {
     background: #fafafa;
     border-radius: 14px;
-    border: 1px solid #eee;
+    border: 1px solid rgba(37, 99, 235, 0.1);
     padding: 18px 20px;
     margin-bottom: 14px;
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+                box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                border 0.3s ease;
 }
 
 .faq-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.25);
 }
 
 .faq-item summary {
@@ -512,10 +644,10 @@ details[open] p {
 .faq-item {
     background: #fff;
     border-radius: 14px;
-    border: 1px solid #eee;
+    border: 1px solid rgba(37, 99, 235, 0.1);
     padding: 0 20px;
     margin-bottom: 14px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.06);
 }
 
 /* clickable header */
@@ -538,6 +670,7 @@ details[open] p {
 .faq-item summary::after {
     content: "▸";
     font-size: 15px;
+    color: #2563eb;
     transition: transform 0.2s ease;
 }
 
@@ -556,8 +689,3 @@ details[open] p {
     max-height: none;
     overflow: visible;
 }
-
-
-
-
-
