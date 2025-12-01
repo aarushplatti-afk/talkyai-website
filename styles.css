@@ -8,7 +8,7 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     color: #111;
-    background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 30%, #bae6fd 60%, #e0f2fe 85%, #f0f9ff 100%);
+    background: linear-gradient(180deg, #f0f9ff 0%, #f0f9ff 30%, #dbeafe 60%, #f0f9ff 85%, #ffffff 100%);
     background-attachment: fixed;
     scroll-behavior: smooth;
     min-height: 100vh;
