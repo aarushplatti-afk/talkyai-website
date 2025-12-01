@@ -303,6 +303,14 @@ section {
     font-weight: 600;
 }
 
+.card-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 10px;
+}
+
 .card-title {
     font-size: 18px;
     font-weight: 700;
@@ -688,4 +696,160 @@ details[open] p {
     height: auto;
     max-height: none;
     overflow: visible;
+}
+
+/* Add this to the end of your styles.css file or replace the existing RESPONSIVE section */
+
+/* RESPONSIVE -------------------------------------------------- */
+@media (max-width: 900px) {
+    /* Header */
+    .header {
+        padding: 15px 20px;
+    }
+    
+    .logo {
+        height: 32px;
+    }
+    
+    .header-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 80px 20px 60px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero h2 {
+        font-size: 24px;
+    }
+    
+    .description {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+    
+    .description br {
+        display: none;
+    }
+    
+    .cta-btn {
+        font-size: 16px;
+        padding: 14px 32px;
+    }
+    
+    /* Features */
+    .features {
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 20px;
+        gap: 30px;
+    }
+    
+    .card {
+        width: 90%;
+        max-width: 340px;
+        height: auto;
+        padding: 30px 20px;
+    }
+    
+    /* How It Works */
+    .how {
+        padding: 60px 20px;
+    }
+    
+    .how-title {
+        font-size: 28px;
+    }
+    
+    .how-sub {
+        font-size: 16px;
+    }
+    
+    .how-grid {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .how-item {
+        width: 90%;
+        max-width: 340px;
+    }
+    
+    /* Audience */
+    .audience {
+        padding: 60px 20px;
+    }
+    
+    .audience h2 {
+        font-size: 24px;
+        padding: 0 10px;
+    }
+    
+    .audience-sub {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    
+    /* FAQ */
+    .faq {
+        padding: 0 15px;
+        margin: 60px auto;
+    }
+    
+    .faq-title {
+        font-size: 26px;
+    }
+    
+    .faq-item summary {
+        font-size: 15px;
+    }
+    
+    .faq-item p {
+        font-size: 14px;
+    }
+    
+    /* Footer */
+    .footer {
+        padding: 40px 20px;
+        font-size: 13px;
+    }
+}
+
+/* Extra small devices (phones in portrait, less than 576px) */
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+    
+    .hero h2 {
+        font-size: 22px;
+    }
+    
+    .description {
+        font-size: 15px;
+    }
+    
+    .cta-btn {
+        font-size: 15px;
+        padding: 12px 28px;
+    }
+    
+    .card {
+        width: 95%;
+    }
+    
+    .how-item {
+        width: 95%;
+    }
+    
+    .faq-title {
+        font-size: 24px;
+    }
 }
