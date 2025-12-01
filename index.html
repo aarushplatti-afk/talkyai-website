@@ -21,59 +21,50 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero fade-in">
-        <h1 class="parallax" data-speed="0.15">TalkyAI</h1>
-        <h2 class="parallax" data-speed="0.22">Speak Better in 30 Seconds</h2>
-        <p class="description apple-fade">
-            TalkyAI analyzes your speaking clarity, confidence, pace, <br>
-            and filler words — instantly.
-        </p>
-        <a href="waitlist.html">
+<section class="hero fade-in">
+    <h1>TalkyAI</h1>
+    <h2>Speak Better in 30 Seconds</h2>
+    <p class="description apple-fade">
+        TalkyAI analyzes your speaking clarity, confidence, pace, <br>
+        and filler words — instantly.
+    </p>
+    <a href="waitlist.html">
         <button class="cta-btn apple-fade">Join Waitlist</button>
-        </a>
+    </a>
+</section>
 
-        
-        
-    </section>
+<!-- FEATURES -->
+<section class="features fade-in">
+    <div class="card apple-fade">
+        <img src="icon-score.png" class="card-icon">
+        <div class="card-label">AI Score</div>
+        <h4 class="card-title">Instant Speaking Score</h4>
+    </div>
 
-    <!-- SIGNUP FORM -->
-   
+    <div class="card apple-fade">
+        <img src="icon-bubble.png" class="card-icon">
+        <div class="card-label">Feedback</div>
+        <h4 class="card-title">Personalized Feedback</h4>
+    </div>
 
-    <!-- FEATURES -->
-    <section class="features fade-in">
-        <div class="card fade-in parallax apple-fade" data-speed="0.10">
-
-            <img src="icon-score.png" class="card-icon">
-            <div class="card-label">AI Score</div>
-            <h4 class="card-title">Instant Speaking Score</h4>
-        </div>
-
-        <div class="card fade-in parallax apple-fade" data-speed="0.10">
-
-            <img src="icon-bubble.png" class="card-icon">
-            <div class="card-label">Feedback</div>
-            <h4 class="card-title">Personalized Feedback</h4>
-        </div>
-
-        <div class="card fade-in parallax apple-fade" data-speed="0.10">
-
-            <img src="icon-chart.png" class="card-icon">
-            <div class="card-label">Progress</div>
-            <h4 class="card-title">Track Improvement</h4>
-        </div>
-    </section>
+    <div class="card apple-fade">
+        <img src="icon-chart.png" class="card-icon">
+        <div class="card-label">Progress</div>
+        <h4 class="card-title">Track Improvement</h4>
+    </div>
+</section>
 
     <!-- HOW IT WORKS SECTION -->
 <section class="how">
-    <h2 class="how-title">Your personal AI speaking coach, available in seconds.</h2>
-    <p class="how-sub"></p>
+    <h2 class="how-title">How TalkyAI Works</h2>
+    <p class="how-sub">Your personal AI speaking coach, available in seconds.</p>
 
     <div class="how-grid">
 
         <div class="how-item apple-fade">
             <img src="icon-mic.png" class="how-icon">
             <h3>1. Record Your Speech</h3>
-            <p>Tap once and speak naturally for 20–30 seconds.</p>
+            <p>Tap once and speak naturally for 20-30 seconds.</p>
         </div>
 
         <div class="how-item apple-fade">
@@ -153,33 +144,10 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 </script>
 
-<script>
-window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
 
-    document.querySelectorAll(".parallax").forEach(el => {
-        const speed = el.getAttribute("data-speed") || 0.3;
-        el.style.transform = `translateY(${scrollY * speed}px)`;
-    });
-});
-</script>
 
 <script>
-// HERO Apple-style scroll fade & scale
-window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const title = document.querySelector(".hero h1");
-    const subtitle = document.querySelector(".hero h2");
 
-    if (title) {
-        title.style.transform = `translateY(${scrollY * 0.2}px) scale(${1 - scrollY * 0.0004})`;
-        title.style.opacity = 1 - scrollY * 0.0012;
-    }
-    if (subtitle) {
-        subtitle.style.transform = `translateY(${scrollY * 0.1}px)`;
-        subtitle.style.opacity = 1 - scrollY * 0.0009;
-    }
-});
 
 // Apple-style staggered section reveals
 const appleObs = new IntersectionObserver(entries => {
